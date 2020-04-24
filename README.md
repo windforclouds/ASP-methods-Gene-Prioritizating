@@ -7,4 +7,4 @@ Here we calculate average shortest path from a point in one small subnetwork to 
 ### 2.Gene prioritization by average shortest path(by AverageShortestpaths.R)
 ![](https://s1.ax1x.com/2020/04/24/JBGqzR.png)   
 经过处理后得到如下：  
-![](https://s1.ax1x.com/2020/04/24/JBYZcR.png)  
+<img src="" alt="" align="center" />![](https://s1.ax1x.com/2020/04/24/JBYZcR.png)  

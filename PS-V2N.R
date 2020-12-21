@@ -83,6 +83,7 @@ for (node in groupA) {
     groupA_avesp[i,6]<-Inf
   }
 }
+
 #the results is ordered by PS-V2N
 groupA_avesp<-groupA_avesp[order(-groupA_avesp$PSV2N),]
 order_by_PSV2N<-c(1:i)

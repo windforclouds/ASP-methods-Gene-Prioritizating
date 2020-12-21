@@ -5,12 +5,13 @@ column is gene name, and the second colname is the type
 identification code 0, 1, and 2
 (0 means groupB, 1 maens groupA, 2 means share genes);
 2.Get your edges-network file ready(such as MSPPIN_edge.csv) '''
-#if you have not installed igraph, please print install.package("igraph")
 
 #set as working directory
 #setwd("~/PS-V2N")
 
+#if you have not installed igraph, please print install.package("igraph")
 library(igraph)
+
 node_all<-read.csv("MSPPIN_vertex.csv",header = T,sep = ",")
 groupB<-as.vector(subset(node_all,aorb == 1|aorb == 2)[,1])
 groupA<-as.vector(subset(node_all,aorb == 0|aorb == 2)[,1]) 

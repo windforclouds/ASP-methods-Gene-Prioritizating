@@ -1,10 +1,10 @@
 #date:2020/12/21
 #author:yj
-'''1.ready for one txt/csv file(such as 61+155_01.csv), first 
+'''1.ready for one txt/csv file(such as MSPPIN_vertex.csv), first 
 column is gene name, and the second colname is the type 
 identification code 0, 1, and 2
 (0 means groupB, 1 maens groupA, 2 means share genes);
-2.Get your edges-network file ready(such as 61+155_edge.csv) '''
+2.Get your edges-network file ready(such as MSPPIN_edge.csv) '''
 #if you have not installed igraph, please print install.package("igraph")
 library(igraph)
 #set as working directory

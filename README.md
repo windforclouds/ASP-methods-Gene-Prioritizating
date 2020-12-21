@@ -1,6 +1,6 @@
 ## Gene Prioritizating by PS-V2N methods(*by PS-V2N.R*)
 
-This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex to Network) which was proposed for the target identification. Here is our work pipeline:
+#This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex to Network) which was proposed for the target identification. Here is our work pipeline:
 
 ![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/pipeline.png)
 

@@ -4,9 +4,9 @@
 
 ![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/pipeline.png)
 
-###**1**. Before calculation，ready for one txt/csv file(such as **MSPPIN_vertex.csv**), first column is gene name, and the second colname is the type identification code 0, 1, and 2 (0 means groupB, 1 maens groupA, 2 means share genes); get your edges-network file ready (**such as MSPPIN_edge.csv**)
+### **1**. Before calculation，ready for one txt/csv file(such as **MSPPIN_vertex.csv**), first column is gene name, and the second colname is the type identification code 0, 1, and 2 (0 means groupB, 1 maens groupA, 2 means share genes); get your edges-network file ready (**such as MSPPIN_edge.csv**)
 
-###**2**. Our method could be summarized into four steps：
+### **2**. Our method could be summarized into four steps：
 
 1)   Divided genes in network into subsets **A** and **B**;
 
@@ -18,7 +18,7 @@
 
 ![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/PS-V2N.png)
 
-###**3**. Run PS-V2N.R and then you'll get a table list ordered by PS-V2N value,results are as follows:
+### **3**. Run PS-V2N.R and then you'll get a table list ordered by PS-V2N value,results are as follows:
 
 ![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/results.png)
 

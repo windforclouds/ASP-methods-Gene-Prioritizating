@@ -1,12 +1,23 @@
-## Gene-Prioritizating-by-d-V2N-methods  
-Here we calculate average shortest path from a point in one small subnetwork to another bigger subnetwork,the two subnetworks are from the same PPIN
-### 1.GEO芯片数据的前期处理和差异表达分析(by GEOget.R)  
-以GSE21942为例得到输出结果  
-![](https://s1.ax1x.com/2020/04/24/JBlXE4.png)  
+## Gene Prioritizating by PS-V2N methods(*by PS-V2N.R*)
 
-### 2.Gene prioritization by average shortest path(by AverageShortestpaths.R)
-![](https://s1.ax1x.com/2020/04/24/JBGqzR.png)   
-经过处理后得到如下：  
-<div align=center>
-	<img src="https://s1.ax1x.com/2020/04/24/JBYZcR.png" width="">
-</div>
+This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex to Network) which was proposed for the target identification. Here is our work pipeline:
+
+![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/pipeline.png)
+
+**1**.Before calculation，ready for one txt/csv file(such as **MSPPIN_vertex.csv**), first column is gene name, and the second colname is the type identification code 0, 1, and 2 (0 means groupB, 1 maens groupA, 2 means share genes); get your edges-network file ready (**such as MSPPIN_edge.csv**)
+
+**2**.Our method could be summarized into four steps：
+
+1)   Divided genes in network into subsets ***A\*** and ***B\***;
+
+2)   Choose gene *vi* from ***A\*** and all genes from ***B\***;
+
+3)   Keep the edges among the selected genes in step 2) to construct the sub-network ***Gsub\***;
+
+4)   Calculate the proximity score for gene *vi* in ***Gsub\*.**
+
+![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/PS-V2N.png)
+
+**3**.Run PS-V2N.R and then you'll get a table list ordered by PS-V2N value,results are as follows:
+
+![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/results.png)

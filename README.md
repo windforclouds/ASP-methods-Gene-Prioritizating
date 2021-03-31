@@ -9,13 +9,13 @@ Before calculation，ready for one txt/csv file(such as **MSPPIN_vertex.csv**), 
 
 ### **2**. Our method could be summarized into four steps：
 
-1)   Divided genes in network into subsets **A** and **B**;
+①  Divided genes in network into subsets **A** and **B**;
 
-2)   Choose gene *vi* from **A** and all genes from **B**;
+②  Choose gene *vi* from **A** and all genes from **B**;
 
-3)   Keep the edges among the selected genes in step 2) to construct the sub-network ***Gsub***;
+③  Keep the edges among the selected genes in step 2) to construct the sub-network ***Gsub***;
 
-4)   Calculate the proximity score for gene *vi* in ***Gsub***.
+④  Calculate the proximity score for gene *vi* in ***Gsub***.
 
 ![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/PS-V2N.jpg)
 

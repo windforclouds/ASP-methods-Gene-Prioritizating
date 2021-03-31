@@ -2,7 +2,7 @@
 
 ### This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex to Network) which was proposed for the target identification. Here is our work pipeline:
 
-//![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/pipeline.png)
+![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/pipeline.png)
 
 ### **1**. work before 
 Before calculation，ready for one txt/csv file(such as **MSPPIN_vertex.csv**), first column is gene name, and the second colname is the type identification code 0, 1, and 2 (0 means groupB, 1 maens groupA, 2 means share genes); get your edges-network file ready (**such as MSPPIN_edge.csv**)

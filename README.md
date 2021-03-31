@@ -17,7 +17,7 @@ Before calculation，ready for one txt/csv file(such as **MSPPIN_vertex.csv**), 
 
 4)   Calculate the proximity score for gene *vi* in ***Gsub***.
 
-![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/PS-V2N.png)
+![](https://github.com/windforclouds/PS-V2N/blob/master/pictures/PS-V2N.jpg)
 
 ### **3**. Run PS-V2N.R and then you'll get a table list ordered by PS-V2N value,results are as follows:
 

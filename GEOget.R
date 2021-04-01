@@ -1,5 +1,5 @@
 ##2019/1/8
-##GEO芯片数据的前期处理和差异表达分析
+##Pre-processing and differential expression analysis of GEO chip data
 
 ##download GEO data
 source("https://bioconductor.org/biocLite.R")
@@ -7,20 +7,20 @@ BiocManager::install('GEOquery')
 BiocManager::install("GEOquery", version = "3.8")
 library(GEOquery)
 options( 'download.file.method.GEOquery' = 'libcurl' ) 
-gse010<-getGEO('GSE52139',destdir =".") ##根据GSE号来下载数据，下载_series_matrix.txt.gz
-gpl570<-getGEO('GPL570',destdir =".")    ##根据GPL号下载的是芯片设计的信息, soft文件
+gse010<-getGEO('GSE52139',destdir =".") ##To download the data according to the GSE number, download _series_matrix.txt.gz
+gpl570<-getGEO('GPL570',destdir =".")    ##Download under the GPL number is the chip design information, soft file
 
-## 加载R包
+## Load  R packages
 library(GEOquery)
-## 下载数据，如果文件夹中有会直接读入
+## Download the data and read it directly if it is in the folder
 gset = getGEO('GSE52139', destdir='.',getGPL = F)
-## 获取ExpressionSet对象，包括的表达矩阵和分组信息
+## Get the expressionSet object, including the expression matrix and group information
 index = gset@annotation
 
 gse010<-getGEO(filename ='GSE52139_series_matrix.txt.gz')
-gpl570<-getGEO(filename ='GPL570.soft') ## 打开已下载的本地数据
+gpl570<-getGEO(filename ='GPL570.soft') ## Open the downloaded local data
 
-##CEL文件
+##CEL files
 BiocManager::install('affy')
 library(BiocGenerics)
 library(parallel)
@@ -29,9 +29,9 @@ library(affy)
 setwd('E:/BaiduNetdiskDownload/RStudio/Ryj/GSE52139_RAW')
 rawdata <- ReadAffy()
 eset <- rma(rawdata)##eset <- mas5(rawdata) ##Background correcting;Normalizing;Calculating Expression
-exprSet <- exprs(eset) ##使用exprs函数进行转换成表达谱矩阵
+exprSet <- exprs(eset) ##Exprs function is used to convert it into an expression spectrum matrix
 
-##RcolorBrewer调色R包
+##RcolorBrewer (color)
 library('RcolorBrewer') 
 op <- par(mfrow=c(1,2))
 cols <- brewer.pal(7, "Set3")
@@ -39,15 +39,15 @@ boxplot(rawdata52139,col=cols,names=1:7, main = "unnormalized.data")
 boxplot(data.frame(exprs(eset)) ,names=1:7, main = "normalization.data", col="blue", border="brown")
 par(op)
 
-##运用limma包做差异分析
-design <- model.matrix(~ -1+factor(c(1,1,2,2,2,2,2))) ##本例中共有7张芯片，前2张为control对照组，后5张芯片为实验处理组，用1表示对照组，用2表示处理组
+##limma
+design <- model.matrix(~ -1+factor(c(1,1,2,2,2,2,2))) ##In this case, there are 7 chips in total. The first 2 chips are the control group, and the last 5 chips are the experimental treatment group. 1 represents the control group, and 2 represents the treatment group
 colnames(design) <- c("control", "MS") 
 contrast.matrix <- makeContrasts(control-MS, levels=design) ##
 fit <- lmFit(eset, design)
 fit <- eBayes(fit) 
 fit2 <- contrasts.fit(fit, contrast.matrix)
 fit2 <- eBayes(fit2)
-results<-decideTests(fit2, method="global", adjust.method="BH", p.value=0.01, lfc=1.5) ##按照p值和logFC值即差异倍数要求得到差异基因
+results<-decideTests(fit2, method="global", adjust.method="BH", p.value=0.01, lfc=1.5) 因
 Output = topTable(fit2, coef=1, n=Inf)
 summary(results)
 getSQLiteFile()
@@ -57,7 +57,7 @@ write.table(x, file="limma.xls", row.names=F, sep="t")
 x$ID =rownames(x)
 xID =merge(x=x,y=genename,by="ID",all.x =T)
 
-###Probe ID转化为symbol
+###Probe ID to symbol
 probe2symbol <- toTable(hgu133plus2SYMBOL)
 exprSet <- as.data.frame(exprSet)
 exprSet$probe_id <- rownames(exprSet)
@@ -66,7 +66,7 @@ dim(exprSet_symbol)
 rownames(exprSet_symbol) <- exprSet_symbol$symbol 
 exprSet_symbol <- exprSet_symbol[, -c(1,2)]
 
-###差异表达分析
+###DEGs
 library(limma)
 condition <- factor(c(rep("control", 2), rep("MS", 5)), levels = c("control", "MS"))
 design <- model.matrix(~condition)
@@ -74,9 +74,9 @@ fit <- lmFit(exprSet_symbol, design)
 fit=eBayes(fit)
 output <- topTable(fit, coef=2,n=Inf)
 
-heatDiagram(results,fit2$coef) ##热图
+heatDiagram(results,fit2$coef) ##heatmap
 
-###判断是否需要进行数据转换
+###Determine if data conversion is required
 ex <- exprSet
 qx <- as.numeric(quantile(ex, c(0., 0.25, 0.5, 0.75, 0.99, 1.0), na.rm=T))
 LogC <- (qx[5] > 100) ||
@@ -112,7 +112,7 @@ column_to_rownames(var = 'symbol')
 
 ---------------------------------------------------------------------------
 ##upload 19.11.29
-##limma包差异分析
+##limma
 setwd("E:/BaiduNetdiskDownload/RStudio/Ryj/GSE52139_RAW")
 library(limma)
 exprSet<-read.table("GSE52139.txt",header = T)

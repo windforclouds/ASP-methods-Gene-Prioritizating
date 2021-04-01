@@ -1,4 +1,5 @@
-[Network-Based Target Prioritization and Drug Candidate Identification for Multiple Sclerosis: From Analyzing “Omics Data” to Druggability Simulations](https://pubs.acs.org/doi/full/10.1021/acschemneuro.1c00011)
+#[Network-Based Target Prioritization and Drug Candidate Identification for Multiple Sclerosis: From Analyzing “Omics Data” to Druggability Simulations](https://pubs.acs.org/doi/full/10.1021/acschemneuro.1c00011)
+
 ## Gene Prioritizating by PS-V2N methods(*by PS-V2N.R*)
 
 ### This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex to Network) which was proposed for the target identification. Here is our work pipeline:
